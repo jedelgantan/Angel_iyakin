@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Angel 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#f8c8dc;
+  --rose:#ff4d6d;
+  --white:#ffffff;
+  --soft:#fff5f9;
+  --glow:#ff8fcf;
+  --blue:#9ad6ff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Quicksand', sans-serif;
+  background:linear-gradient(180deg,#fff0f5,#ffe4ec);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* 🌌 SMALL HEART TEXT BACKGROUND */
+.heart-bg{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
+.text-item{
+  position:absolute;
+  color:#ff5fa8;
+  font-size:12px;  /* smaller hearts */
+  font-weight:bold;
+  white-space:nowrap;
+  text-shadow:0 0 5px #ff80ab,0 0 10px #ff8fcf;
+  animation:pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse{
+  0%,100%{
+    transform:translate(var(--x), var(--y)) scale(1);
+    opacity:.5;
+  }
+  50%{
+    transform:translate(calc(var(--x) * 1.05), calc(var(--y) * 1.05)) scale(1.1);
+    opacity:1;
+  }
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:120px 20px;
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-family:'Great Vibes', cursive;
+  font-size:4rem;
+  color:#ff4d88;
+  text-shadow:0 0 20px rgba(255,105,180,.4);
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:1.2rem;
+  color:#555;
+}
+
+/* FLASH CARDS */
+.photo-section{
+  padding:100px 20px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.photo-title{
+  font-family:'Dancing Script', cursive;
+  font-size:2.8rem;
+  color:#ff4d88;
+}
+
+.flash-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+
+.flash-card{
+  width:200px;
+  height:300px;
+  perspective:1000px;
+  margin:auto;
+}
+
+.flash-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transition:transform .8s;
+  transform-style:preserve-3d;
+}
+
+.flash-card:hover .flash-inner{
+  transform:rotateY(180deg);
+}
+
+.flash-front,
+.flash-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:25px;
+  backface-visibility:hidden;
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
+}
+
+.flash-front{
+  background:white;
+  padding:15px;
+}
+
+.flash-front img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+.flash-back{
+  background:linear-gradient(135deg,#f8bbd0,#f48fb1);
+  color:white;
+  font-family:'Dancing Script', cursive;
+  font-size:1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform:rotateY(180deg);
+  text-align:center;
+  padding:20px;
+}
+
+/* MESSAGE & VIDEO CARDS */
+.card{
+  background:rgba(255,255,255,.6);
+  backdrop-filter:blur(15px);
+  border-radius:30px;
+  padding:50px;
+  margin:80px 20px;
+  box-shadow:0 20px 50px rgba(0,0,0,.1);
+  position:relative;
+  z-index:2;
+}
+
+.card h2{
+  font-family:'Dancing Script', cursive;
+  font-size:2.2rem;
+  color:#ff4d88;
+  margin-bottom:20px;
+}
+
+.card p{
+  line-height:1.8;
+  font-size:1.1rem;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:15px 35px;
+  background:linear-gradient(135deg,#f48fb1,#ff80ab);
+  color:white;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.4s;
+  box-shadow:0 15px 35px rgba(255,105,180,.4);
+}
+
+.btn:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* FLOATING PETALS */
+.petal{
+  position:fixed;
+  top:-10px;
+  width:15px;
+  height:15px;
+  background:var(--pink);
+  border-radius:50%;
+  opacity:.6;
+  animation:fall 8s linear infinite;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
+}
+
+/* FALLING HEARTS */
+.falling-heart{
+  position:fixed;
+  top:-20px;
+  font-size:25px;
+  animation:fallHeart linear forwards;
+}
+
+@keyframes fallHeart{
+  to{ transform: translateY(110vh) rotate(360deg);}
+}
+
+/* BOUQUET ANIMATED GLOW FLOWERS */
+.bouquet-section{
+  padding:150px 20px;
+  text-align:center;
+  background:linear-gradient(180deg,#ffe4ec,#fff0f5);
+  position:relative;
+  z-index:2;
+}
+
+.bouquet-title{
+  font-family:'Great Vibes', cursive;
+  font-size:3.5rem;
+  color:#ff2d75;
+  margin-bottom:50px;
+  text-shadow:0 0 25px rgba(255,105,180,.5);
+}
+
+.bouquet{
+  position:relative;
+  width:300px;
+  height:300px;
+  margin:auto;
+  z-index:2;
+}
+
+.flower{
+  position:absolute;
+  font-size:4rem;
+  animation:floatFlower 6s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+}
+
+.flower:nth-child(1){ left:20%; animation-delay:0s;}
+.flower:nth-child(2){ left:50%; animation-delay:1s;}
+.flower:nth-child(3){ left:80%; animation-delay:2s;}
+.flower:nth-child(4){ left:35%; animation-delay:1.5s;}
+.flower:nth-child(5){ left:65%; animation-delay:2.5s;}
+.flower:nth-child(6){ left:50%; animation-delay:3s;}
+
+@keyframes floatFlower{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-30px) scale(1.2);}
+}
+
+@keyframes glow{
+  0%{text-shadow:0 0 10px #ff8fcf;}
+  50%{text-shadow:0 0 25px #ff8fcf, 0 0 50px #ff80ab;}
+  100%{text-shadow:0 0 10px #ff8fcf;}
+}
+
+footer{
+  text-align:center;
+  padding:80px 20px;
+  color:#888;
+  position:relative;
+  z-index:2;
+}
+</style>
+</head>
+<body>
+
+<!-- 🌌 SMALL HEART TEXT BACKGROUND -->
+<div class="heart-bg" id="heart"></div>
+
+<!-- Floating Petals & Falling Hearts -->
+<script>
+for(let i=0;i<20;i++){
+  let petal=document.createElement("div");
+  petal.classList.add("petal");
+  petal.style.left=Math.random()*100+"vw";
+  petal.style.animationDuration=(5+Math.random()*5)+"s";
+  petal.style.opacity=Math.random();
+  document.body.appendChild(petal);
+}
+
+// FALLING HEARTS subtle
+setInterval(()=>{
+  let heart=document.createElement('div');
+  heart.classList.add('falling-heart');
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=(6+Math.random()*4)+'s';
+  heart.innerText='💖';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),12000);
+},1500);
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>For My Angel 💗</h1>
+  <p>You are my favorite person in the whole universe ✨</p>
+</section>
+
+<!-- FLASH CARDS 6 -->
+<section class="photo-section">
+  <h2 class="photo-title">🌷💕</h2>
+  <div class="flash-container">
+    <div class="flash-card"><div class="flash-inner"><div class="flash-front"><img src="i.png"></div><div class="flash-back">My Favorite Smile 💗</div></div></div>
+    <div class="flash-card"><div class="flash-inner"><div class="flash-front"><img src="l.png"></div><div class="flash-back">My Safe Place 🧸</div></div></div>
+    <div class="flash-card"><div class="flash-inner"><div class="flash-front"><img src="y.png"></div><div class="flash-back">My Happiness ✨</div></div></div>
+    <div class="flash-card"><div class="flash-inner"><div class="flash-front"><img src="angel.png"></div><div class="flash-back">My Angel 👼🏻</div></div></div>
+    <div class="flash-card"><div class="flash-inner"><div class="flash-front"><img src="babyko.jpeg"></div><div class="flash-back">Always Choose You 🤍</div></div></div>
+    
+  </div>
+</section>
+
+<!-- MESSAGE CARD -->
+<section>
+  <div class="card">
+    <h2>For You 🌸</h2>
+    <p>
+      Happy Valentine’s Day, my love 💗  
+      You are my favorite person, my happiness, and my peace.  
+      I may not always give you gifts,  
+      but I promise to always give you my effort, care, and genuine love.  
+      Thank you for existing. I love you endlessly 🤍
+    </p>
+    <a href="#" class="btn">Smile For Me 💗</a>
+  </div>
+</section>
+
+<!-- VIDEO CARD -->
+<section>
+  <div class="card">
+    <h2>Just For You 🎥</h2>
+    <video width="100%" controls style="border-radius:25px; box-shadow:0 20px 50px rgba(0,0,0,.15);">
+      <source src="g.mp4" type="video/mp4">
+    </video>
+    <p style="margin-top:20px; font-size:1.1rem;">
+      This video is specially made for you, my angel 👼🏻💗  
+      Thank you for being my happiness, my comfort, and my everything.  
+      No matter what happens, I will always choose you.  
+      I love you endlessly 🤍
+    </p>
+  </div>
+</section>
+
+<!-- BOUQUET ANIMATED GLOW FLOWERS -->
+<section class="bouquet-section">
+  <h2 class="bouquet-title">A Bouquet For You 🌸</h2>
+  <div class="bouquet">
+    <div class="flower">🌹</div>
+    <div class="flower">🌹</div>
+    <div class="flower">🌹</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌷</div>
+    <div class="flower">💐</div>
+  </div>
+</section>
+
+<footer>
+Made with love 🤍
+</footer>
+
+<!-- HEART TEXT BACKGROUND SCRIPT -->
+<script>
+const container = document.getElementById('heart');
+const text="💖";
+const totalPoints = 60;
+
+for(let i=0;i<totalPoints;i++){
+  const span=document.createElement('div');
+  span.className='text-item';
+  span.innerText=text;
+
+  // Heart-shaped coordinates
+  const t = (i/totalPoints) * 2 * Math.PI;
+  const x = 16*Math.pow(Math.sin(t),3)*12;  // smaller scale
+  const y = -(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))*12;
+
+  span.style.setProperty('--x', x + 'px');
+  span.style.setProperty('--y', y + 'px');
+  span.style.animationDelay = (Math.random()*3) + 's';
+
+  container.appendChild(span);
+}
+</script>
+
+</body>
+</html>
